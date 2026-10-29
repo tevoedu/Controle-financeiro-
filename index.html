@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#102b26">
+  <meta name="description" content="Controle financeiro pessoal privado, com dados guardados no próprio navegador.">
+  <title>Meu Financeiro — controle pessoal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Pular para o conteúdo</a>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Meu Financeiro, início">
+      <span class="brand-mark" aria-hidden="true">M</span>
+      <span><strong>Meu Financeiro</strong><small>controle pessoal</small></span>
+    </a>
+    <div class="month-control" aria-label="Mês selecionado">
+      <button class="icon-btn" id="prevMonth" type="button" aria-label="Mês anterior">‹</button>
+      <label class="sr-only" for="monthPicker">Escolha o mês</label>
+      <input id="monthPicker" type="month">
+      <button class="icon-btn" id="nextMonth" type="button" aria-label="Próximo mês">›</button>
+    </div>
+    <div class="top-actions">
+      <span id="demoBadge" class="badge badge-example">Exemplo</span>
+      <button class="avatar-btn" id="openSettings" type="button" aria-label="Abrir configurações">⚙</button>
+    </div>
+  </header>
+
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Navegação principal">
+      <p class="nav-caption">SEU DINHEIRO</p>
+      <button class="nav-link active" data-view="dashboard" type="button"><span>▦</span> Visão geral</button>
+      <button class="nav-link" data-view="transactions" type="button"><span>↕</span> Movimentações</button>
+      <button class="nav-link" data-view="bills" type="button"><span>▤</span> Contas e vencimentos</button>
+      <button class="nav-link" data-view="budget" type="button"><span>◴</span> Orçamento</button>
+      <button class="nav-link" data-view="goals" type="button"><span>◎</span> Objetivos</button>
+      <button class="nav-link" data-view="emergency" type="button"><span>⌂</span> Reserva de emergência</button>
+      <button class="nav-link" data-view="insights" type="button"><span>⌁</span> Relatórios e insights</button>
+      <div class="sidebar-foot">
+        <div class="privacy-note"><span aria-hidden="true">●</span><div><strong>Seus dados ficam aqui</strong><small>Armazenados neste navegador, sem envio a servidor.</small></div></div>
+        <button class="nav-link" data-view="settings" type="button"><span>⚙</span> Configurações e backup</button>
+      </div>
+    </aside>
+
+    <main id="content" tabindex="-1" class="main-content">
+      <div class="loading-state"><span class="spinner"></span> Carregando seu financeiro…</div>
+    </main>
+  </div>
+
+  <nav class="bottom-nav" aria-label="Navegação para celular">
+    <button class="bottom-link active" data-view="dashboard" type="button"><span>▦</span><small>Início</small></button>
+    <button class="bottom-link" data-view="transactions" type="button"><span>↕</span><small>Lançamentos</small></button>
+    <button class="bottom-link add-bottom" id="quickAdd" type="button" aria-label="Adicionar movimentação"><span>＋</span><small>Adicionar</small></button>
+    <button class="bottom-link" data-view="bills" type="button"><span>▤</span><small>Contas</small></button>
+    <button class="bottom-link" data-view="goals" type="button"><span>◎</span><small>Objetivos</small></button>
+  </nav>
+
+  <button class="floating-add" id="floatingAdd" type="button"><span>＋</span> Adicionar gasto</button>
+  <dialog id="dialog" class="app-dialog" aria-labelledby="dialogTitle">
+    <div class="dialog-head"><div><p class="eyebrow" id="dialogEyebrow">NOVO LANÇAMENTO</p><h2 id="dialogTitle">Adicionar movimentação</h2></div><button type="button" class="icon-btn" id="closeDialog" aria-label="Fechar">×</button></div>
+    <div id="dialogBody"></div>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <input id="backupPicker" type="file" accept="application/json,.json" hidden>
+  <script src="finance.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

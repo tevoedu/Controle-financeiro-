@@ -1,0 +1,4 @@
+﻿data;tipo;descricao;categoria;valor_R$;situacao;marca
+2026-10-05;Receita;Salário de exemplo;Salário;3200,00;Recebido;EXEMPLO
+2026-10-10;Despesa;Mercado de exemplo;Alimentação;245,00;Pago;EXEMPLO
+2026-10-18;Aporte objetivo;Aporte de exemplo;Objetivos;200,00;Realizado;EXEMPLO
